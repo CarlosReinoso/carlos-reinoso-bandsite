@@ -1,11 +1,157 @@
+header, .nav, .nav__logo {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 4.25rem;
+    line-height: 4.25rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
+
+h3 {
+  font-size: 1.375rem;
+  line-height: 1.375rem;
+  font-weight: 600;
+}
+@media screen and (min-width: 768px) {
+  h3 {
+    font-size: 2rem;
+    line-height: 2.75rem;
+  }
+}
+
+p {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  p {
+    font-size: 1.375rem;
+    line-height: 1.375rem;
+  }
+}
+
+h4 {
+  font-size: 0.8125rem;
+  line-height: 1.125rem;
+  font-weight: 400;
+}
+@media screen and (min-width: 768px) {
+  h4 {
+    font-size: 1.25rem;
+    line-height: 1.25rem;
+  }
+}
+
+h5, button {
+  font-size: 0.625rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+}
+@media screen and (min-width: 768px) {
+  h5, button {
+    font-size: 1.25rem;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  background-color: #323232;
+}
+
+.nav {
+  flex-direction: column;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .nav {
+    flex-direction: row;
+    padding: 1rem 0;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .nav {
+    padding-left: 10%;
+  }
+}
+.nav__logo-image {
+  margin: 0.625rem 3.25rem;
+}
+.nav__link {
+  color: #FFFFFF;
+}
+@media screen and (min-width: 768px) {
+  .nav__link--active {
+    border-bottom: 4px solid #FFFFFF;
+    padding-bottom: 1.65rem;
+  }
+}
+.nav__link--inactive {
+  color: #E1E1E1;
+}
+.nav__list {
+  display: flex;
+  width: 100%;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .nav__list {
+    align-items: center;
+  }
+}
+.nav__list-item {
+  width: 50%;
+}
+@media screen and (min-width: 768px) {
+  .nav__list-item {
+    width: 5rem;
+  }
+}
+.nav__list-item--active {
+  border-bottom: 4px solid #FFFFFF;
+}
+@media screen and (min-width: 768px) {
+  .nav__list-item--active {
+    border: none;
+  }
+}
+
 html, body {
   box-sizing: border-box;
   font-family: "Avenir Next";
+  font-size: 16px;
 }
 
 * {
   margin: 0;
   padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 @font-face {

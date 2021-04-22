@@ -8,11 +8,26 @@
     <title>Bandsite</title>
 </head>
 <body>
-    <h1>Test text</h1>
-    <h2>h2 test</h2>
-    <p>a p test</p>
     <header>
-        <nav class="nav"></nav>
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="./index.html">
+                    <img class="nav__logo-image" src="./assets/logos/Logo-bandsite.svg" alt="bandsite-logo">
+                </a>
+            </div>
+            <ul class="nav__list">
+                <li class="nav__list-item nav__list-item--active">
+                    <a class="nav__link nav__link--active " href="./index.html">
+                        Biography
+                    </a>
+                </li>
+                <li class="nav__list-item ">
+                    <a  class="nav__link nav__link--inactive" href="#">
+                        Shows
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main>
         <section class="hero"></section>
