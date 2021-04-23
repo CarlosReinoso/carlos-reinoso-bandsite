@@ -1,7 +1,7 @@
 @use './variables' as *;
 @use './mixins' as *;
 
-header {
+.nav__header {
     @extend %flex-center-;
     background-color: $BandSite-Black;
 }
@@ -14,13 +14,16 @@ header {
         padding: 1rem 0;
     }
     @include desktop {
-        padding-left: 10%;
+        padding-left: 8.5rem;
     }
         &__logo {
             @extend %flex-center-;
         }
         &__logo-image {
             margin: 0.625rem 3.25rem;
+            @include desktop {
+                margin: 0.625rem 3.25rem 0.625rem 0;
+            }
         }
         &__link {
             color: $White;

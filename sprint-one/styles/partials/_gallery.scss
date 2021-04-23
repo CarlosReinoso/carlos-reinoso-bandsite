@@ -1,0 +1,33 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.gallery {
+    padding: $layout-padding-mobile;
+    background-color: $Alabaster;
+    color: $BandSite-Black;
+    @include tablet {
+        padding: $layout-padding-tablet;
+    }
+    @include desktop {
+        padding: 4rem 8.5rem 4.5rem 8.5rem;
+    }
+    &__title {
+    }
+    &__images-container {
+        margin: 0;
+        @include tablet {
+            display: inline-flex;
+            flex-wrap: wrap;
+            gap: 16px 32px;
+        }
+    }
+    &__image {
+        height: auto;
+        width: 100%;
+        padding-top: 16px;
+        @include tablet {
+            width: 31%;
+        }
+    }
+        
+}

@@ -4,14 +4,14 @@
     $section-header: 2.25rem;
     $subheader: 2rem;
     $body-copy: 1.375rem;
-    $footer-copy: 1.25rem;
+    $footer-copy: 1rem;
     $labels-and-buttons: 1.25rem;
 
     //mobile
-    $page-header-mobile: 2rem;
+    $page-header-mobile: 1.5rem;
     $section-header-mobile: 2rem;
-    $subheader-mobile: 1.375rem;
-    $body-copy-mobile: 0.8125rem;
+    $subheader-mobile: 16px;
+    $body-copy-mobile: 14px;
     $footer-copy-mobile: 0.8125rem;
     $labels-and-buttons-mobile: 0.625rem;
 
@@ -32,6 +32,9 @@
     $Mercury: #E1E1E1 ; 
     $Alabaster: #FAFAFA ; 
 
+    //image opacity
+    $BandSite-DarkBlack-Opacity: rgba(50, 50, 50, 0.5); 
+
 
 //breakpoints
 $tablet-breakpoint: 768px;
@@ -43,6 +46,10 @@ $desktop-breakpoint: 1280px;
     justify-content: center;
 }
 
+//layout padding
+$layout-padding-mobile: 1.5rem 1rem 1rem 1rem;
+$layout-padding-tablet: 3rem 2.25rem 2.25rem 2.25rem;
+$layout-padding-desktop: 5rem 4.5rem 4.5rem 4.5rem;
 
 
 

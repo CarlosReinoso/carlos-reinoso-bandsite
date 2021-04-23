@@ -1,24 +1,115 @@
-header, .nav, .nav__logo {
+.nav__header, .nav, .nav__logo {
   display: flex;
   justify-content: center;
 }
 
+.about {
+  padding: 1.5rem 1rem 1rem 1rem;
+  color: #323232;
+}
+@media screen and (min-width: 768px) {
+  .about {
+    padding: 3rem 2.25rem 2.25rem 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .about {
+    padding: 64px 8.5rem 4.5rem 8.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .about__container {
+    padding: 8px 0 8px 64px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .about__container {
+    padding: 24px 0 0 88px;
+  }
+}
+.about__blockquote {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding-top: 8px;
+}
+@media screen and (min-width: 768px) {
+  .about__blockquote {
+    padding-top: 24px;
+    line-height: 32px;
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .about__blockquote {
+    padding-top: 32px;
+  }
+}
+.about__blockquote-author {
+  padding-top: 8px;
+  line-height: 24px;
+}
+@media screen and (min-width: 768px) {
+  .about__blockquote-author {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .about__blockquote-author {
+    padding-top: 24px;
+  }
+}
+.about__article-heading {
+  padding-top: 32px;
+  color: #000000;
+}
+@media screen and (min-width: 1280px) {
+  .about__article-heading {
+    padding-top: 64px;
+  }
+}
+.about__article-columns {
+  padding-top: 16px;
+}
+@media screen and (min-width: 768px) {
+  .about__article-columns {
+    display: flex;
+    gap: 24px;
+  }
+}
+.about__article-column {
+  padding-top: 16px;
+}
+.about__image {
+  height: auto;
+  width: 100%;
+  padding-top: 16px;
+}
+
 h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 2rem;
-  font-weight: 700;
+  font-weight: 600;
+  padding-left: 1rem;
 }
 @media screen and (min-width: 768px) {
   h1 {
     font-size: 4.25rem;
     line-height: 4.25rem;
+    font-weight: 400;
+    padding-left: 3.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  h1 {
+    padding-left: 8.5rem;
   }
 }
 
 h2 {
   font-size: 2rem;
   line-height: 2rem;
-  font-weight: 700;
+  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
   h2 {
@@ -28,7 +119,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.375rem;
+  font-size: 16px;
   line-height: 1.375rem;
   font-weight: 600;
 }
@@ -40,13 +131,13 @@ h3 {
 }
 
 p {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
+  font-size: 14px;
+  line-height: 22px;
   font-weight: 400;
 }
 @media screen and (min-width: 768px) {
   p {
-    font-size: 1.375rem;
+    font-size: 16px;
     line-height: 1.375rem;
   }
 }
@@ -55,10 +146,11 @@ h4 {
   font-size: 0.8125rem;
   line-height: 1.125rem;
   font-weight: 400;
+  height: 8rem;
 }
 @media screen and (min-width: 768px) {
   h4 {
-    font-size: 1.25rem;
+    font-size: 1rem;
     line-height: 1.25rem;
   }
 }
@@ -78,7 +170,167 @@ a {
   text-decoration: none;
 }
 
-header {
+.footer {
+  padding: 1.5rem 1rem 1rem 1rem;
+  background-color: #323232;
+  color: #FFFFFF;
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 3rem 2.25rem 2.25rem 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .footer {
+    padding: 4rem 8.5rem 4.5rem 8.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer__header {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer__title {
+    width: 33%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .footer__socials-container {
+    display: flex;
+    justify-content: space-between;
+    width: 66%;
+  }
+}
+.footer__icons {
+  padding-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__icons {
+    padding: 0;
+  }
+}
+.footer__icon {
+  padding-right: 3rem;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+.footer__header-logo {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .footer__header-logo {
+    display: inline-flex;
+  }
+}
+.footer__companies-container {
+  padding-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__companies-container {
+    display: flex;
+    align-content: space-between;
+    height: 20rem;
+    padding-top: 3rem;
+  }
+}
+.footer__company {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  height: 10rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__company {
+    height: 20rem;
+    width: 33%;
+  }
+}
+.footer__company-name {
+  font-weight: 600;
+}
+.footer__footer {
+  padding-top: 3rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__footer {
+    padding-top: 0;
+  }
+}
+.footer__footer-logo {
+  padding-bottom: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .footer__footer-logo {
+    display: none;
+  }
+}
+.footer__copyright {
+  display: block;
+  height: 24px;
+  font-size: 11px;
+}
+@media screen and (min-width: 768px) {
+  .footer__copyright {
+    font-size: 16px;
+  }
+}
+
+.gallery {
+  padding: 1.5rem 1rem 1rem 1rem;
+  background-color: #FAFAFA;
+  color: #323232;
+}
+@media screen and (min-width: 768px) {
+  .gallery {
+    padding: 3rem 2.25rem 2.25rem 2.25rem;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery {
+    padding: 4rem 8.5rem 4.5rem 8.5rem;
+  }
+}
+.gallery__images-container {
+  margin: 0;
+}
+@media screen and (min-width: 768px) {
+  .gallery__images-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 16px 32px;
+  }
+}
+.gallery__image {
+  height: auto;
+  width: 100%;
+  padding-top: 16px;
+}
+@media screen and (min-width: 768px) {
+  .gallery__image {
+    width: 31%;
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  background-image: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/images/hero-bio.jpg");
+  height: 60vh;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@media screen and (min-width: 768px) {
+  .hero {
+    height: 80vh;
+  }
+}
+
+.nav__header {
   background-color: #323232;
 }
 
@@ -94,11 +346,16 @@ header {
 }
 @media screen and (min-width: 1280px) {
   .nav {
-    padding-left: 10%;
+    padding-left: 8.5rem;
   }
 }
 .nav__logo-image {
   margin: 0.625rem 3.25rem;
+}
+@media screen and (min-width: 1280px) {
+  .nav__logo-image {
+    margin: 0.625rem 3.25rem 0.625rem 0;
+  }
 }
 .nav__link {
   color: #FFFFFF;
