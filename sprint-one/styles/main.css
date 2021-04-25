@@ -1,6 +1,6 @@
 .nav__header, .nav, .nav__logo {
   display: flex;
-  justify-content: center;
+  justify-items: center;
 }
 
 .about {
@@ -14,76 +14,76 @@
 }
 @media screen and (min-width: 1280px) {
   .about {
-    padding: 64px 8.5rem 4.5rem 8.5rem;
+    padding: 4rem 8.5rem 4.5rem 8.5rem;
   }
 }
 @media screen and (min-width: 768px) {
   .about__container {
-    padding: 8px 0 8px 64px;
+    padding: 0.5rem 0 0.5rem 4rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .about__container {
-    padding: 24px 0 0 88px;
+    padding: 1.5rem 0 0 5.5rem;
   }
 }
 .about__blockquote {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 600;
   padding-top: 8px;
 }
 @media screen and (min-width: 768px) {
   .about__blockquote {
-    padding-top: 24px;
-    line-height: 32px;
-    font-size: 24px;
+    padding-top: 1.5rem;
+    line-height: 2rem;
+    font-size: 1.5rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .about__blockquote {
-    padding-top: 32px;
+    padding-top: 2rem;
   }
 }
 .about__blockquote-author {
-  padding-top: 8px;
-  line-height: 24px;
+  padding-top: 0.5rem;
+  line-height: 1.5rem;
 }
 @media screen and (min-width: 768px) {
   .about__blockquote-author {
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 @media screen and (min-width: 1280px) {
   .about__blockquote-author {
-    padding-top: 24px;
+    padding-top: 1.5rem;
   }
 }
 .about__article-heading {
-  padding-top: 32px;
+  padding-top: 2rem;
   color: #000000;
 }
 @media screen and (min-width: 1280px) {
   .about__article-heading {
-    padding-top: 64px;
+    padding-top: 4rem;
   }
 }
 .about__article-columns {
-  padding-top: 16px;
+  padding-top: 1rem;
 }
 @media screen and (min-width: 768px) {
   .about__article-columns {
     display: flex;
-    gap: 24px;
+    gap: 1.5rem;
   }
 }
 .about__article-column {
-  padding-top: 16px;
+  padding-top: 1rem;
 }
 .about__image {
   height: auto;
   width: 100%;
-  padding-top: 16px;
+  padding-top: 1rem;
 }
 
 h1 {
@@ -119,7 +119,7 @@ h2 {
 }
 
 h3 {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.375rem;
   font-weight: 600;
 }
@@ -131,26 +131,26 @@ h3 {
 }
 
 p {
-  font-size: 14px;
+  font-size: 1rem;
   line-height: 22px;
   font-weight: 400;
 }
 @media screen and (min-width: 768px) {
   p {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.375rem;
   }
 }
 
 h4 {
-  font-size: 0.8125rem;
-  line-height: 1.125rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 400;
   height: 8rem;
 }
 @media screen and (min-width: 768px) {
   h4 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 1.25rem;
   }
 }
@@ -204,7 +204,7 @@ a {
   }
 }
 .footer__icons {
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 @media screen and (min-width: 768px) {
   .footer__icons {
@@ -225,7 +225,7 @@ a {
   }
 }
 .footer__companies-container {
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 @media screen and (min-width: 768px) {
   .footer__companies-container {
@@ -239,7 +239,7 @@ a {
   display: flex;
   flex-direction: column;
   align-content: space-between;
-  height: 10rem;
+  height: 12rem;
 }
 @media screen and (min-width: 768px) {
   .footer__company {
@@ -299,17 +299,17 @@ a {
   .gallery__images-container {
     display: inline-flex;
     flex-wrap: wrap;
-    gap: 16px 32px;
+    gap: 1rem 2rem;
   }
 }
 .gallery__image {
   height: auto;
   width: 100%;
-  padding-top: 16px;
+  padding-top: 1rem;
 }
 @media screen and (min-width: 768px) {
   .gallery__image {
-    width: 31%;
+    width: 30%;
   }
 }
 
@@ -333,15 +333,21 @@ a {
 .nav__header {
   background-color: #323232;
 }
+@media screen and (min-width: 768px) {
+  .nav__header {
+    height: 5rem;
+  }
+}
 
 .nav {
   flex-direction: column;
   width: 100%;
+  padding-top: 1.5rem;
 }
 @media screen and (min-width: 768px) {
   .nav {
     flex-direction: row;
-    padding: 1rem 0;
+    padding: 0 0 0 3.25rem;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -349,8 +355,14 @@ a {
     padding-left: 8.5rem;
   }
 }
-.nav__logo-image {
-  margin: 0.625rem 3.25rem;
+.nav__logo {
+  justify-content: center;
+}
+@media screen and (min-width: 768px) {
+  .nav__logo {
+    padding: 0 3.25rem 0 0;
+    align-items: center;
+  }
 }
 @media screen and (min-width: 1280px) {
   .nav__logo-image {
@@ -362,8 +374,8 @@ a {
 }
 @media screen and (min-width: 768px) {
   .nav__link--active {
-    border-bottom: 4px solid #FFFFFF;
-    padding-bottom: 1.65rem;
+    border-bottom: 0.25rem solid #FFFFFF;
+    padding-bottom: 1.8rem;
   }
 }
 .nav__link--inactive {
@@ -373,22 +385,26 @@ a {
   display: flex;
   width: 100%;
   text-align: center;
+  padding-top: 0.5rem;
 }
 @media screen and (min-width: 768px) {
   .nav__list {
     align-items: center;
+    padding: 0;
   }
 }
 .nav__list-item {
   width: 50%;
+  padding-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .nav__list-item {
-    width: 5rem;
+    width: 7.5rem;
+    padding: 0;
   }
 }
 .nav__list-item--active {
-  border-bottom: 4px solid #FFFFFF;
+  border-bottom: 0.25rem solid #FFFFFF;
 }
 @media screen and (min-width: 768px) {
   .nav__list-item--active {

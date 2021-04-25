@@ -33,7 +33,7 @@
     }
 
     &__icons {
-        padding-top: 1rem;
+        padding-top: 2rem;
         @include tablet {
             padding: 0;
         }
@@ -53,7 +53,7 @@
     }
     
     &__companies-container {
-        padding-top: 1rem;
+        padding-top: 2rem;
         @include tablet {
             display: flex;
             align-content: space-between;
@@ -66,7 +66,7 @@
         display: flex;
         flex-direction: column;
         align-content: space-between;
-        height: 10rem;
+        height: 12rem;
         @include tablet {
             height: 20rem;
             width: 33%;

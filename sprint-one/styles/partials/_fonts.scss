@@ -42,7 +42,7 @@ p {
     line-height: 22px;
     font-weight: $regular;
     @include tablet {
-        font-size: 16px;
+        font-size: 1rem;
         line-height: 1.375rem;
     }
 }
@@ -50,7 +50,7 @@ p {
 //footer copy
 h4 {
     font-size: $footer-copy-mobile;
-    line-height: 1.125rem;
+    line-height: 1.5rem;
     font-weight: $regular;
     height: 8rem;
     @include tablet {

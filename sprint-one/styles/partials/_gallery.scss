@@ -11,22 +11,20 @@
     @include desktop {
         padding: 4rem 8.5rem 4.5rem 8.5rem;
     }
-    &__title {
-    }
     &__images-container {
         margin: 0;
         @include tablet {
             display: inline-flex;
             flex-wrap: wrap;
-            gap: 16px 32px;
+            gap: 1rem 2rem;
         }
     }
     &__image {
         height: auto;
         width: 100%;
-        padding-top: 16px;
+        padding-top: 1rem;
         @include tablet {
-            width: 31%;
+            width: 30%;
         }
     }
         

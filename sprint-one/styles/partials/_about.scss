@@ -8,63 +8,63 @@
         padding: $layout-padding-tablet;
     }
     @include desktop {
-        padding: 64px 8.5rem 4.5rem 8.5rem;
+        padding: 4rem 8.5rem 4.5rem 8.5rem;
     }
 
     &__container {
         @include tablet {
-            padding: 8px 0 8px 64px;
+            padding: 0.5rem 0 0.5rem 4rem;
         }
         @include desktop {
-            padding: 24px 0 0 88px;
+            padding: 1.5rem 0 0 5.5rem;
         }
     }
     &__blockquote {
         font-size: $subheader-mobile;
-        line-height: 24px;
+        line-height: 1.5rem;
         font-weight: $demi;
         padding-top: 8px;
         @include tablet {
-            padding-top: 24px;
-            line-height: 32px;
-            font-size: 24px;
+            padding-top: 1.5rem;
+            line-height: 2rem;
+            font-size: 1.5rem;
         }
         @include desktop {
-            padding-top: 32px;
+            padding-top: 2rem;
         }
     }
     &__blockquote-author {
-        padding-top: 8px;
-        line-height: 24px;
+        padding-top: 0.5rem;
+        line-height: 1.5rem;
         @include tablet {
-            font-size: 16px;
+            font-size: 1rem;
         }
         @include desktop {
-            padding-top: 24px;
+            padding-top: 1.5rem;
         }
     }
     &__article-heading {
-        padding-top: 32px;
+        padding-top: 2rem;
         color: $BandSite-DarkBlack;
         @include desktop {
-            padding-top: 64px;
+            padding-top: 4rem;
         }
     }
     &__article-columns {
-        padding-top: 16px;
+        padding-top: 1rem;
         @include tablet {
             display: flex;
-            gap: 24px;
+            gap: 1.5rem;
         }
     }
     &__article-column {
-        padding-top: 16px;
+        padding-top: 1rem;
 
     }
     
     &__image {
         height: auto;
         width: 100%;
-        padding-top: 16px;
+        padding-top: 1rem;
     }
 }
