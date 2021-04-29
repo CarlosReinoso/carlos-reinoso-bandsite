@@ -1,0 +1,70 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.about {
+    padding: $layout-padding-mobile;
+    color: $BandSite-Black;
+    @include tablet {
+        padding: $layout-padding-tablet;
+    }
+    @include desktop {
+        padding: 4rem 8.5rem 4.5rem 8.5rem;
+    }
+
+    &__container {
+        @include tablet {
+            padding: 0.5rem 0 0.5rem 4rem;
+        }
+        @include desktop {
+            padding: 1.5rem 0 0 5.5rem;
+        }
+    }
+    &__blockquote {
+        font-size: $subheader-mobile;
+        line-height: 1.5rem;
+        font-weight: $demi;
+        padding-top: 8px;
+        @include tablet {
+            padding-top: 1.5rem;
+            line-height: 2rem;
+            font-size: 1.5rem;
+        }
+        @include desktop {
+            padding-top: 2rem;
+        }
+    }
+    &__blockquote-author {
+        padding-top: 0.5rem;
+        line-height: 1.5rem;
+        @include tablet {
+            font-size: 1rem;
+        }
+        @include desktop {
+            padding-top: 1.5rem;
+        }
+    }
+    &__article-heading {
+        padding-top: 2rem;
+        color: $BandSite-DarkBlack;
+        @include desktop {
+            padding-top: 4rem;
+        }
+    }
+    &__article-columns {
+        padding-top: 1rem;
+        @include tablet {
+            display: flex;
+            gap: 1.5rem;
+        }
+    }
+    &__article-column {
+        padding-top: 1rem;
+
+    }
+    
+    &__image {
+        height: auto;
+        width: 100%;
+        padding-top: 1rem;
+    }
+}

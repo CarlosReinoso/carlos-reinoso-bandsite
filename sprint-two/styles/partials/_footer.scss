@@ -1,0 +1,102 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.footer {
+    padding: $layout-padding-mobile;
+    background-color: $BandSite-Black;
+    color: $White;
+    @include tablet {
+        padding: $layout-padding-tablet;
+    }
+    @include desktop {
+        padding: 4rem 8.5rem 4.5rem 8.5rem;
+    }
+    &__header {
+        @include tablet {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__title {
+        @include tablet {
+            width: 33%;
+        }
+    }
+    
+    &__socials-container {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+            width: 66%;
+        }
+    }
+
+    &__icons {
+        padding-top: 2rem;
+        @include tablet {
+            padding: 0;
+        }
+    }
+    
+    &__icon {
+        padding-right: 3rem;
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+    
+    &__header-logo {
+        display: none;
+        @include tablet {
+            display: inline-flex;
+        }
+    }
+    
+    &__companies-container {
+        padding-top: 2rem;
+        @include tablet {
+            display: flex;
+            align-content: space-between;
+            height: 20rem;
+            padding-top: 3rem;
+        }
+    }
+    
+    &__company {
+        display: flex;
+        flex-direction: column;
+        align-content: space-between;
+        height: 12rem;
+        @include tablet {
+            height: 20rem;
+            width: 33%;
+        }
+    }
+    
+    &__company-name {
+        font-weight: $demi;
+    }
+    
+    &__footer {
+        padding-top: 3rem;
+        @include tablet {
+            padding-top: 0;
+        }
+    }
+    
+    &__footer-logo {
+        padding-bottom: 1rem;
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__copyright {
+        display: block;
+        height: 24px;
+        font-size: 11px;
+        @include tablet {
+            font-size: 16px;
+        }
+    }
+}

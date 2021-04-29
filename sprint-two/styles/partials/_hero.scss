@@ -1,0 +1,18 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.hero {
+    display: flex;
+    align-items: center;
+    color: $White;
+    background-image: linear-gradient($BandSite-DarkBlack-Opacity, $BandSite-DarkBlack-Opacity), url("../assets/images/hero-bio.jpg");
+    //   background-color: $BandSite-DarkBlack-Opacity;
+    height: 60vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include tablet {
+        height: 80vh;
+    }
+}

@@ -1,0 +1,61 @@
+@use './variables';
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    &__title {
+
+    }
+    &__form-container {
+        display: flex;
+    }
+    &__form-avatar {
+
+    }
+    &__form-avatar-image {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+    &__form-input {
+
+    }
+    &__form-textarea {
+
+    }
+    &__button {
+
+    }
+    &__list-container {
+        display: flex;
+        flex-direction: column;
+    }
+    &__list-item {
+        display: flex;
+    }
+    &__list-user-avatar {
+        background-color: grey;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+    }
+    &__list-info-container {
+    }
+    &__list-info {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__list-name {
+
+    }
+    &__list-date {
+
+    }
+    &__list-comment {
+
+    }
+}
