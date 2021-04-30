@@ -1,4 +1,4 @@
-const comments = [
+const defaultComments = [
     {
         name: "Connor Walton",
         timestamp: "02/17/2021",
@@ -16,93 +16,180 @@ const comments = [
     },
 ]
 
+const addedComments = [];
+let firstComment = true;
 
-//you can have two array in a for arrayOne[i] = arrrayTwo[i]
-//loop though object using for in or map
+const commentsListContainer = document.querySelector(".comments__list-container") 
 
-const displayComment = (comment) => {
-    const nameNodeList = document.querySelectorAll(".comments__list-name")
-    const dateNodeList = document.querySelectorAll(".comments__list-date")
-    const commentNodeList = document.querySelectorAll(".comments__list-comment")
-    // console.log(nameNodeList) 
-    // console.log(nameNodeList[0])
-    // console.log(nameNodeList[0].innerText)
-    // console.log(comment)
-    // console.log(comment[0])
-    // console.log(comment[0].name)
+
+const displayComment = (arr) => {
+    arr.forEach((person) => {
+        //create divs with classes
+        const commentsListContainer = document.querySelector(".comments__list-container") 
+
+        const listItem = document.createElement("div")
+        listItem.classList.add("comments__list-item")
+
+        const listAvatarContainer = document.createElement("div")
+        listAvatarContainer.classList.add("comments__list-avatar-container")
+
+        const listUserAvatar = document.createElement("div")
+        listUserAvatar.classList.add("comments__list-user-avatar")
+
+        const listInfoContainer = document.createElement("div")
+        listInfoContainer.classList.add("comments__list-info-container")
+
+        const listInfo = document.createElement("div")
+        listInfo.classList.add("comments__list-info")
+
+        const listName = document.createElement("div")
+        listName.classList.add("comments__list-name")
+
+        const listDate = document.createElement("div")
+        listDate.classList.add("comments__list-date")
+
+        const listComment = document.createElement("div")
+        listComment.classList.add("comments__list-comment")
+
+        //append layers of divs
+        commentsListContainer.appendChild(listItem)
+            listItem.appendChild(listAvatarContainer)
+                listAvatarContainer.appendChild(listUserAvatar)
+            listItem.appendChild(listInfoContainer)
+                listInfoContainer.appendChild(listInfo)
+                    listInfo.appendChild(listName)
+                    listInfo.appendChild(listDate)
+            listInfoContainer.appendChild(listComment)
+               
+        //add array data to div      
+        listName.innerText = person.name
+        listDate.innerText = person.timestamp
+        listComment.innerText = person.comment
+    });
+}
+
+const addComments = () => {
+    const commentForm = document.querySelector(".comments__form")
+    const formInput = document.querySelector(".comments__form-input")
+    const formComment = document.querySelector(".comments__form-textarea")
+
+
+    commentForm.addEventListener('submit', event => {
+        //input values from user
+        const formInputValue = formInput.value
+        const date = new Date()
+        const formatedDate = new Intl.DateTimeFormat('en-US').format(date)
+        const formCommentValue = formComment.value
+        
+        const newCommentData = {
+            name: formInputValue,
+            timestamp: formatedDate,
+            comment: formCommentValue
+        }
+        addedComments.unshift(newCommentData)
+
+        if (firstComment) {
+            clearElements()
+            firstComment = false
+        }
+        
+        event.preventDefault();
+        commentForm.reset();
+        displayNewComments();
+    })
+}
+
+
+const displayNewComments = () => {
+        clearElements()
+        //create divs with classes
+        addedComments.forEach((person) => {
+            const commentsListContainer = document.querySelector(".comments__list-container") 
+
+            const listItem = document.createElement("div")
+            listItem.classList.add("comments__list-item")
+
+            const listAvatarContainer = document.createElement("div")
+            listAvatarContainer.classList.add("comments__list-avatar-container")
+
+            const listUserAvatar = document.createElement("div")
+            listUserAvatar.classList.add("comments__list-user-avatar")
+
+            const listInfoContainer = document.createElement("div")
+            listInfoContainer.classList.add("comments__list-info-container")
+
+            const listInfo = document.createElement("div")
+            listInfo.classList.add("comments__list-info")
+
+            const listName = document.createElement("div")
+            listName.classList.add("comments__list-name")
+
+            const listDate = document.createElement("div")
+            listDate.classList.add("comments__list-date")
+
+            const listComment = document.createElement("div")
+            listComment.classList.add("comments__list-comment")
+
+            //append layers of divs
+            commentsListContainer.appendChild(listItem)
+                listItem.appendChild(listAvatarContainer)
+                    listAvatarContainer.appendChild(listUserAvatar)
+                listItem.appendChild(listInfoContainer)
+                    listInfoContainer.appendChild(listInfo)
+                        listInfo.appendChild(listName)
+                        listInfo.appendChild(listDate)
+                listInfoContainer.appendChild(listComment)
+                
+                
+            //add array data to div      
+            listName.innerText = person.name
+            listDate.innerText = person.timestamp
+            listComment.innerText = person.comment
+        });
+}
+
+const clearElements = () => {
+    commentsListContainer.innerHTML = ''         
+}
+
+//call functions
+displayComment(defaultComments)
+addComments()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const nameNodeList = document.querySelectorAll(".comments__list-name")
+    // const dateNodeList = document.querySelectorAll(".comments__list-date")
+    // const commentNodeList = document.querySelectorAll(".comments__list-comment")
 
     // for (let i = 0; i < comment.length; i++) {
         //     nameNodeList[i].innerText = comment[i].name
         // }
     // comment.forEach( item => console.log(item.name, item.timestamp))
-    nameNodeList.forEach((item, index) => {
-        // console.log(comment[index].name)
-        item.innerText = comment[index].name
-    } ) 
+    // nameNodeList.forEach((item, index) => {
+    //     // console.log(comment[index].name)
+    //     item.innerText = comment[index].name
+    // } ) 
 
-    dateNodeList.forEach((item, index) => {
-        item.innerText = comment[index].timestamp
-    } ) 
-    commentNodeList.forEach((item, index) => {
-        item.innerText = comment[index].comment
-    } )
-}
-
-// const addComments = () => {
-//     const commentForm = document.querySelector(".comments__form")
-//     const formInput = document.querySelector(".comments__form-input")
-//     const formComment = document.querySelector(".comments__form-textarea")
-//     const commentListContainer = document.querySelector(".comments__list-info-container")
-
-//     commentForm.addEventListener('submit', event => {
-//         event.preventDefault();
-//         const formInputValue = formInput.value
-//         const formCommentValue = formComment.value
-
-//         const commentNameElement = document.createElement("div")
-//         commentNameElement.classList.add("comments__list-name")
-//         commentNameElement.innerText = formInputValue
-//         commentListContainer.appendChild(commentNameElement)
-        
-//         const commentNameElement = document.createElement("div")
-//         commentNameElement.classList.add("comments__list-name")
-//         commentNameElement.innerText = formInputValue
-//         commentListContainer.appendChild(commentNameElement)
-
-//     })
-// }
-
-displayComment(comments)
-// addComments()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //geeting name from object
-// let name = comments[0].name
-// console.log(name)
-// const main = document.querySelector("main")
-// const section = document.createElement("section")
-// const header = document.createElement("h2")
-// const div = document.createElement("div")
-
-
-// main.append(section)
-
-// section.append(header)
-// section.append(div)
-// section.append(div)
-
-// console.log(main)
+    // dateNodeList.forEach((item, index) => {
+    //     item.innerText = comment[index].timestamp
+    // } ) 
+    // commentNodeList.forEach((item, index) => {
+    //     item.innerText = comment[index].comment
+    // } )
