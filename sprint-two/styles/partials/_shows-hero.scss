@@ -1,0 +1,55 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.shows-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2rem 1rem 1.5rem 1rem;
+    color: $White;
+    background-image: linear-gradient($BandSite-DarkBlack-Opacity, $BandSite-DarkBlack-Opacity), url("../assets/images/hero-shows.jpg");
+    height: 40vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    @include tablet {
+        padding: 3.5rem 3.25rem 3.25rem 3.25rem;
+        height: 47vh;
+    }
+    @include desktop {
+        flex-direction: row;
+        align-items: center;
+        padding: 3rem 8.5rem 3rem 8.5rem;
+        height: 50vh;
+    }
+    &__subheading {
+        font-size: 0.8rem;
+        margin-bottom: 0.7rem;
+        @include tablet {
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        @include desktop {
+            margin-bottom: 2rem;
+        }
+    }
+    &__info-container {
+        
+    }
+    &__title {
+    }
+    &__play {
+        width: 100%;
+        height: 50%;
+        @include tablet {
+            width: 55%;
+            height: 40%;
+        }
+        @include desktop {
+            width: 38%;
+            height: 26%;  
+        }
+    }
+
+}

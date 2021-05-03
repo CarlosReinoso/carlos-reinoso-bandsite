@@ -8,6 +8,11 @@
     @include tablet {
         padding: 3.5rem 3.25rem 3.25rem 3.25rem;
     }
+    @include desktop {
+        padding: 3rem 8.5rem 3rem 8.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
     &__header {
         color: $BandSite-DarkBlack;
     }
@@ -16,6 +21,9 @@
         @include tablet {
             display: flex;
             padding-top: 2.5rem;
+        }
+        @include desktop {
+            padding: 1.1rem 0 1.5rem 0;
         }
     }
     &__tabel-heading {
@@ -27,6 +35,9 @@
         }
     }
     &__container {
+        @include desktop {
+            width: 70%;
+        }
     }
     &__item {
         @include tablet {
@@ -50,7 +61,7 @@
         font-weight: 600;
     }
     &__item-button {
-        transition-duration: 0.4s;
+        transition-duration: 0.3s;
         background-color: $BandSite-Black;
         color: $White;
         height: 40px;
@@ -58,6 +69,7 @@
         border: none;
         border-radius: 4px;
         margin-top: 1rem;
+        font-size: 1rem;
         @include tablet {
             min-width: 150px;
             padding: 0 32px 0 32px;
@@ -84,6 +96,9 @@
 
 .show__item {
     margin-bottom: 0.5rem;
+    @include tablet {
+        margin: 0;
+    }
     &__item-label {
         margin-bottom: 0.5rem;
     }

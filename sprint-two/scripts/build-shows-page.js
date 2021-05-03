@@ -2,7 +2,7 @@
 //array: dates, venue, location
 //button: console location
 
-//make section in main
+//make section element in main
 const main = document.querySelector("main")
 const section = document.createElement("section")
 section.classList.add("shows")
@@ -13,23 +13,6 @@ const header = document.createElement("h2")
 header.classList.add("shows__header")
 header.innerText = "Shows"
 section.appendChild(header)
-
-//tablet shows tabel header
-const displayHeader = () => {
-    const tabelHeader = ["DATES", "VENUE", "LOCATION"]
-
-    const showsTabelHeader = document.createElement("div")
-    showsTabelHeader.classList.add("shows__tabel-header")
-    section.appendChild(showsTabelHeader)
-
-    tabelHeader.forEach( header => {
-        const showsTabelHeading = document.createElement("div")
-        showsTabelHeading.classList.add("shows__tabel-heading")
-        showsTabelHeading.innerText = header
-        showsTabelHeader.appendChild(showsTabelHeading)
-    })
-}
-displayHeader()
 
 //display shows
 const showsDetails = [
@@ -70,6 +53,24 @@ const showsDetails = [
 const showsContainer = document.createElement("div")
 showsContainer.classList.add("shows__container")
 section.appendChild(showsContainer)
+
+//tablet shows tabel header
+const displayHeader = () => {
+    const tabelHeader = ["DATES", "VENUE", "LOCATION"]
+
+    const showsTabelHeader = document.createElement("div")
+    showsTabelHeader.classList.add("shows__tabel-header")
+    showsContainer.appendChild(showsTabelHeader)
+
+    tabelHeader.forEach( header => {
+        const showsTabelHeading = document.createElement("div")
+        showsTabelHeading.classList.add("shows__tabel-heading")
+        showsTabelHeading.innerText = header
+        showsTabelHeader.appendChild(showsTabelHeading)
+    })
+}
+displayHeader()
+
 
 const displayShows = () => {
     showsDetails.forEach( show => {
@@ -129,3 +130,20 @@ const displayShows = () => {
     })
 }
 displayShows()
+
+//console location on buy button click
+const consoleVenue = () => {
+    const buyButtons = document.querySelectorAll(".shows__item-button")
+    buyButtons.forEach( (button, index) => {
+        button.addEventListener('click', () => {
+            const venues = document.querySelectorAll(".shows__item-venue")
+            console.log(venues[index].innerText)
+        })
+    })
+}
+consoleVenue()
+
+
+
+
+

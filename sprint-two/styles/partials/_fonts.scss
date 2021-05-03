@@ -2,27 +2,25 @@
 @use './mixins' as *;
 
 h1 {
-    font-size: $page-header-mobile;
+    font-size: 1.4rem;
     line-height: 2rem;
     font-weight: $demi;
-    padding-left: 1rem;
     @include tablet {
-        font-size: $page-header;
-        line-height: 4.25rem;
-        font-weight: $regular;
-        padding-left: 3.25rem;
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+        font-weight: 600;
     }
     @include desktop {
-        padding-left: 8.5rem;
+        // padding-left: 8.5rem;
     }
 }
 
 h2 {
-    font-size: $section-header-mobile;
+    font-size: 1.5rem;
     line-height: 2rem;
     font-weight: $demi;
     @include tablet {
-        font-size: $section-header;
+        font-size: 2.2rem;
         line-height: 2.75rem;
     }
 }
@@ -49,7 +47,7 @@ p {
 
 //footer copy
 h4 {
-    font-size: $footer-copy-mobile;
+    font-size: 0.8rem;
     line-height: 1.5rem;
     font-weight: $regular;
     height: 8rem;

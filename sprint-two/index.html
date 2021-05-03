@@ -63,31 +63,33 @@
         </section>
         <section class="comments">
             <h2 class="comments__title">Join the Conversation</h2>
-            <div class="comments__form-container">
-                <div class="comments__form-avatar">
-                    <img src="./assets/images/Mohan-muruge.jpg" alt="user-avatar-icon" class="comments__form-avatar-image">
+            <div class="comments__list-and-form-container">
+                <div class="comments__form-container">
+                    <div class="comments__form-avatar">
+                        <img src="./assets/images/Mohan-muruge.jpg" alt="user-avatar-icon" class="comments__form-avatar-image">
+                    </div>
+                    <form class="comments__form">
+                        <label class="comments__form-label" for="username">NAME</label>
+                            <input name="name" type="text" id="username" class="comments__form-input comments__form-input-value" placeholder="Enter your name" required>
+                        <label class="comments__form-label comments__form-label-textarea " for="user-comment">COMMENT</label>
+                            <textarea type="text" id="user-comment" class="comments__form-input comments__form-textarea" placeholder="Add a new comment" required></textarea>
+                        <button type="submit" id="submit" class="comments__button">COMMENT</button>
+                    </form>
                 </div>
-                <form class="comments__form">
-                    <label for="username">NAME</label>
-                        <input name="name" type="text" id="username" class="comments__form-input" placeholder="Enter your name">
-                    <label for="user-comment">COMMENT</label>
-                        <textarea type="text" id="user-comment" class="comments__form-textarea" placeholder="Add a new comment"></textarea>
-                    <button type="submit" id="submit" class="comments__button">COMMENT</button>
-                </form>
-            </div>
-            <div class="comments__list-container">
-                <!-- <div class="comments__list-item">
-                    <div class="comments__list-avatar-container">
-                        <div class="comments__list-user-avatar"></div>
-                    </div>
-                    <div class="comments__list-info-container">
-                        <div class="comments__list-info">
-                            <div class="comments__list-name"></div>
-                            <div class="comments__list-date"></div>
-                        </div>   
-                        <div class="comments__list-comment"></div>
-                    </div>
-                </div> -->
+                <div class="comments__list-container">
+                    <!-- <div class="comments__list-item">
+                        <div class="comments__list-avatar-container">
+                            <div class="comments__list-user-avatar"></div>
+                        </div>
+                        <div class="comments__list-info-container">
+                            <div class="comments__list-info">
+                                <div class="comments__list-name"></div>
+                                <div class="comments__list-date"></div>
+                            </div>   
+                            <div class="comments__list-comment"></div>
+                        </div>
+                    </div> -->
+                </div>
             </div>
         </section> 
     </main>

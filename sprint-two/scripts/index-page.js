@@ -102,6 +102,7 @@ const addComments = () => {
 
 const displayNewComments = () => {
         clearElements()
+        
         //create divs with classes
         addedComments.forEach((person) => {
             const commentsListContainer = document.querySelector(".comments__list-container") 

@@ -9,7 +9,7 @@
         padding: $layout-padding-tablet;
     }
     @include desktop {
-        padding: 4rem 8.5rem 4.5rem 8.5rem;
+        padding: 4rem 8.5rem 1.5rem 8.5rem;
     }
     &__header {
         @include tablet {
@@ -22,6 +22,9 @@
         @include tablet {
             width: 33%;
         }
+        @include desktop {
+            width: 28%;
+        }
     }
     
     &__socials-container {
@@ -30,10 +33,13 @@
             justify-content: space-between;
             width: 66%;
         }
+        @include desktop {
+            width: 72%;
+        }
     }
 
     &__icons {
-        padding-top: 2rem;
+        padding-top: 1rem;
         @include tablet {
             padding: 0;
         }
@@ -53,12 +59,15 @@
     }
     
     &__companies-container {
-        padding-top: 2rem;
+        padding-top: 1rem;
         @include tablet {
             display: flex;
             align-content: space-between;
             height: 20rem;
             padding-top: 3rem;
+        }
+        @include desktop {
+            height: 13rem;
         }
     }
     
@@ -71,6 +80,10 @@
             height: 20rem;
             width: 33%;
         }
+        @include desktop {
+            width: 28%;
+            height: 12rem;
+        }
     }
     
     &__company-name {
@@ -78,7 +91,7 @@
     }
     
     &__footer {
-        padding-top: 3rem;
+        padding-top: 1rem;
         @include tablet {
             padding-top: 0;
         }

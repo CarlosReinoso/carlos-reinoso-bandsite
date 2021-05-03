@@ -4,8 +4,12 @@
 .nav__header {
     @extend %flex-center-;
     background-color: $BandSite-Black;
+    font-size: 0.9rem;
     @include tablet {
-        height: 5rem;
+        height: 4rem;
+    }
+    @include desktop {
+        height: 5.5rem;
     }
 }
 .nav {
@@ -20,11 +24,6 @@
     @include desktop {
         padding-left: 8.5rem;
     }
-    // &__logo-link {
-    //     display: flex;
-    //     @include tablet {
-    //     }
-    // }
     &__logo {
         @extend %flex-center-;
         justify-content: center;
@@ -34,8 +33,6 @@
         }
     }
     &__logo-image {
-
-        // margin: 0 3.25rem 0 3.25rem; 
         @include desktop {
             margin: 0.625rem 3.25rem 0.625rem 0;
         }
@@ -45,7 +42,10 @@
         &--active {
             @include tablet {
                 border-bottom: 0.25rem solid $White;
-                padding-bottom: 1.8rem;
+                padding-bottom: 1.4rem;
+            }
+            @include desktop {
+                padding-bottom: 2rem;
             }
         }
         &--inactive {
@@ -70,7 +70,7 @@
             padding: 0;
         }
         &--active {
-            border-bottom: 0.25rem solid $White;
+            border-bottom: 0.15rem solid $White;
             @include tablet {
                 border: none;
             }
