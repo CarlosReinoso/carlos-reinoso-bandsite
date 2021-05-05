@@ -1,0 +1,108 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+
+
+.shows {
+    padding: 2rem 1rem 1rem 1rem;
+    @include tablet {
+        padding: 3.5rem 3.25rem 3.25rem 3.25rem;
+    }
+    @include desktop {
+        padding: 3rem 8.5rem 3rem 8.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__header {
+        color: $BandSite-DarkBlack;
+    }
+    &__tabel-header {
+        display: none;
+        @include tablet {
+            display: flex;
+            padding-top: 2.5rem;
+        }
+        @include desktop {
+            padding: 1.1rem 0 1.5rem 0;
+        }
+    }
+    &__tabel-heading {
+        @include tablet {
+            width: 25%;
+            color: $Silver;
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+    &__container {
+        @include desktop {
+            width: 70%;
+        }
+    }
+    &__item {
+        @include tablet {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid $Mercury;
+            padding: 1rem 0;
+        }
+    }
+    &__label {
+        display: block;
+        color: $Silver;
+        font-size: 13px;
+        font-weight: 600;
+        margin-top: 1.5rem;
+        @include tablet {
+            display: none;
+        }
+    }
+    &__item-date {
+        font-weight: 600;
+    }
+    &__item-button {
+        transition-duration: 0.3s;
+        background-color: $BandSite-Black;
+        color: $White;
+        height: 40px;
+        width: 100%;
+        border: none;
+        border-radius: 4px;
+        margin-top: 1rem;
+        font-size: 1rem;
+        @include tablet {
+            min-width: 150px;
+            padding: 0 32px 0 32px;
+            font-size: 0.9rem;
+        }
+    }
+    &__item-button:hover {
+        background-color: $BandSite-DarkBlack;
+        color: $White;
+        height: 40px;
+
+    }
+    &__divider {
+        border: none;
+        margin-top: 1rem;
+        background-color: $Mercury;
+        height: 2px;
+        @include tablet {
+            display: none;
+        }
+    }
+    
+}
+
+.show__item {
+    margin-bottom: 0.5rem;
+    @include tablet {
+        margin: 0;
+    }
+    &__item-label {
+        margin-bottom: 0.5rem;
+    }
+    @include tablet {
+        width: 25%;
+    }
+}

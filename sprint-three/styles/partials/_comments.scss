@@ -1,0 +1,161 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+input::placeholder {
+    color: $BandSite-Black;
+}
+
+input[type=text]:focus {
+    outline: 1px solid $BandSite-Black;
+}
+input:focus-within {
+    outline: 1px solid $BandSite-Black;
+}
+input[type=text]:focus-visible {
+    outline: 1px solid #D22D2D;
+}
+
+textarea {
+    font-family: 'Avenir Next';
+    height: 5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: $Alabaster;
+}
+
+textarea::placeholder {
+    color: $BandSite-Black;
+}
+textarea:focus-visible {
+    outline: 1px solid $BandSite-Black;
+}
+
+.comments {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem 1rem 1rem;
+    @include tablet {
+        padding: 3rem 2.25rem 2.25rem 2.25rem;
+    }
+    @include desktop {
+        padding: 4rem 8.5rem 2.5rem 8.5rem;
+    }
+    &__title {
+    }
+    &__list-and-form-container {
+        padding: 0 10% 0 7%;
+        @include desktop {
+            margin-top: 1rem;
+            padding: 0 29% 0 24%;
+        }
+    }
+    &__form-container {
+        display: flex;
+        margin-top: 1rem;
+    }
+    &__form-avatar {
+        width: 20%;
+        @include tablet {
+            width: 12%;
+        }
+    }
+    &__form-avatar-image {
+        margin-top: 1.3rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        border-radius: 50%;
+        @include tablet {
+            height: 3rem;
+            width: 3rem;
+        }
+    }
+    &__form {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        @include tablet {
+            width: 90%;
+        }
+    }
+    &__form-label {
+        margin-bottom: 0.5rem;
+    }
+    &__form-input {
+        margin-bottom: 1rem;
+    }
+    &__form-input-value {
+        height: 2rem;
+        padding: 0.5rem;
+        border-radius: 4px;
+        background-color: $Alabaster;
+        border: 1px solid $Mercury;
+        @include tablet {
+            padding: 1.5rem 1rem 1.5rem 1rem;
+            height: 0;
+        }
+    }
+    &__form-label-textarea {
+        @include tablet {
+            margin-top: 0.5rem;
+        }
+    }
+    &__form-textarea {
+        border: 1px solid $Mercury;
+        @include tablet {
+            padding: 1.5rem 1rem 0 1rem;
+        }
+    }
+    &__button {
+        @include tablet {
+            width: 33%;
+            align-self: flex-end;
+            margin: 0.5rem 0;
+        }
+    }
+    &__list-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 1rem;
+        border-top: 2px solid $Mercury;
+
+    }
+    &__list-item {
+        display: flex;
+        padding: 1rem 0 1rem 0;
+        border-bottom: 2px solid $Mercury;
+        @include tablet {
+            padding: 2rem 0;
+        }
+    }
+    &__list-avatar-container {
+        width: 20%;
+        @include tablet {
+            width: 12%;
+        }
+    }
+    &__list-user-avatar {
+        background-color: $Mercury;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+    }
+    &__list-info-container {
+        width: 88%;
+    }
+    &__list-info {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__list-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
+    &__list-date {
+        font-size: 0.9rem;
+        color: $Silver;
+    }
+    &__list-comment {
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+}

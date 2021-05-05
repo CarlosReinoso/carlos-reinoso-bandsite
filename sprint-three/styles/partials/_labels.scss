@@ -1,0 +1,9 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+label {
+    display: block;
+    color: #AFAFAF;
+    font-size: 13px;
+    font-weight: 600;
+}

@@ -1,0 +1,22 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.hero {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem 1rem 1rem;
+    color: $White;
+    background-image: linear-gradient($BandSite-DarkBlack-Opacity, $BandSite-DarkBlack-Opacity), url("../assets/images/hero-bio.jpg");
+    //   background-color: $BandSite-DarkBlack-Opacity;
+    height: 25vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include tablet {
+        height: 80vh;
+    }
+    @include desktop {
+        padding: 4rem 8.5rem 4.5rem 8.5rem;
+        height: 40vh;
+    }
+}

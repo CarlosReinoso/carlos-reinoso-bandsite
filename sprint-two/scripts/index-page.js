@@ -22,51 +22,51 @@ let firstComment = true;
 const commentsListContainer = document.querySelector(".comments__list-container") 
 
 
-const displayComment = (arr) => {
-    arr.forEach((person) => {
-        //create divs with classes
-        const commentsListContainer = document.querySelector(".comments__list-container") 
+// const displayComment = (arr) => {
+//     arr.forEach((person) => {
+//         //create divs with classes
+//         const commentsListContainer = document.querySelector(".comments__list-container") 
 
-        const listItem = document.createElement("div")
-        listItem.classList.add("comments__list-item")
+//         const listItem = document.createElement("div")
+//         listItem.classList.add("comments__list-item")
 
-        const listAvatarContainer = document.createElement("div")
-        listAvatarContainer.classList.add("comments__list-avatar-container")
+//         const listAvatarContainer = document.createElement("div")
+//         listAvatarContainer.classList.add("comments__list-avatar-container")
 
-        const listUserAvatar = document.createElement("div")
-        listUserAvatar.classList.add("comments__list-user-avatar")
+//         const listUserAvatar = document.createElement("div")
+//         listUserAvatar.classList.add("comments__list-user-avatar")
 
-        const listInfoContainer = document.createElement("div")
-        listInfoContainer.classList.add("comments__list-info-container")
+//         const listInfoContainer = document.createElement("div")
+//         listInfoContainer.classList.add("comments__list-info-container")
 
-        const listInfo = document.createElement("div")
-        listInfo.classList.add("comments__list-info")
+//         const listInfo = document.createElement("div")
+//         listInfo.classList.add("comments__list-info")
 
-        const listName = document.createElement("div")
-        listName.classList.add("comments__list-name")
+//         const listName = document.createElement("div")
+//         listName.classList.add("comments__list-name")
 
-        const listDate = document.createElement("div")
-        listDate.classList.add("comments__list-date")
+//         const listDate = document.createElement("div")
+//         listDate.classList.add("comments__list-date")
 
-        const listComment = document.createElement("div")
-        listComment.classList.add("comments__list-comment")
+//         const listComment = document.createElement("div")
+//         listComment.classList.add("comments__list-comment")
 
-        //append layers of divs
-        commentsListContainer.appendChild(listItem)
-            listItem.appendChild(listAvatarContainer)
-                listAvatarContainer.appendChild(listUserAvatar)
-            listItem.appendChild(listInfoContainer)
-                listInfoContainer.appendChild(listInfo)
-                    listInfo.appendChild(listName)
-                    listInfo.appendChild(listDate)
-            listInfoContainer.appendChild(listComment)
+//         //append layers of divs
+//         commentsListContainer.appendChild(listItem)
+//             listItem.appendChild(listAvatarContainer)
+//                 listAvatarContainer.appendChild(listUserAvatar)
+//             listItem.appendChild(listInfoContainer)
+//                 listInfoContainer.appendChild(listInfo)
+//                     listInfo.appendChild(listName)
+//                     listInfo.appendChild(listDate)
+//             listInfoContainer.appendChild(listComment)
                
-        //add array data to div      
-        listName.innerText = person.name
-        listDate.innerText = person.timestamp
-        listComment.innerText = person.comment
-    });
-}
+//         //add array data to div      
+//         listName.innerText = person.name
+//         listDate.innerText = person.timestamp
+//         listComment.innerText = person.comment
+//     });
+// }
 
 const addComments = () => {
     const commentForm = document.querySelector(".comments__form")
@@ -102,7 +102,7 @@ const addComments = () => {
 
 const displayNewComments = () => {
         clearElements()
-        
+
         //create divs with classes
         addedComments.forEach((person) => {
             const commentsListContainer = document.querySelector(".comments__list-container") 
@@ -154,43 +154,75 @@ const clearElements = () => {
 }
 
 //call functions
-displayComment(defaultComments)
+// displayComment(defaultComments)
 addComments()
 
 
+//SPRINT 3
+const BANDSITE_API_KEY = '076e5480-f5ec-4ec2-a1d9-112f1b6fbc03'
+const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
 
+//type in the url you want, they key goe at the end
+const BANDSITE_COMMENTS_API = `https://project-1-api.herokuapp.com/comments?api_key=${BANDSITE_API_KEY}`
 
+//get auth keys
+const getKey = axios.get(BANDSITE_API_URL+"/register")
+getKey
+    .then(bandsiteAPIKey => console.log("Bandsite API Key: " + bandsiteAPIKey.data.api_key))
+    .catch(err => console.log(err))
 
+//get comments from API
+const getComments = axios.get(`${BANDSITE_COMMENTS_API}`)
+getComments
+    .then( bandsiteAPIData => {
+        diplayAPIComments(bandsiteAPIData.data)
+    })
+    .catch(err => console.log(err))
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const nameNodeList = document.querySelectorAll(".comments__list-name")
-    // const dateNodeList = document.querySelectorAll(".comments__list-date")
-    // const commentNodeList = document.querySelectorAll(".comments__list-comment")
-
-    // for (let i = 0; i < comment.length; i++) {
-        //     nameNodeList[i].innerText = comment[i].name
-        // }
-    // comment.forEach( item => console.log(item.name, item.timestamp))
-    // nameNodeList.forEach((item, index) => {
-    //     // console.log(comment[index].name)
-    //     item.innerText = comment[index].name
-    // } ) 
-
-    // dateNodeList.forEach((item, index) => {
-    //     item.innerText = comment[index].timestamp
-    // } ) 
-    // commentNodeList.forEach((item, index) => {
-    //     item.innerText = comment[index].comment
-    // } )
+//display API Comments
+const diplayAPIComments = (APIdata) => {
+    console.log(APIdata)
+    APIdata.forEach((person) => {
+            //create divs with classes
+            const commentsListContainer = document.querySelector(".comments__list-container") 
+    
+            const listItem = document.createElement("div")
+            listItem.classList.add("comments__list-item")
+    
+            const listAvatarContainer = document.createElement("div")
+            listAvatarContainer.classList.add("comments__list-avatar-container")
+    
+            const listUserAvatar = document.createElement("div")
+            listUserAvatar.classList.add("comments__list-user-avatar")
+    
+            const listInfoContainer = document.createElement("div")
+            listInfoContainer.classList.add("comments__list-info-container")
+    
+            const listInfo = document.createElement("div")
+            listInfo.classList.add("comments__list-info")
+    
+            const listName = document.createElement("div")
+            listName.classList.add("comments__list-name")
+    
+            const listDate = document.createElement("div")
+            listDate.classList.add("comments__list-date")
+    
+            const listComment = document.createElement("div")
+            listComment.classList.add("comments__list-comment")
+    
+            //append layers of divs
+            commentsListContainer.appendChild(listItem)
+                listItem.appendChild(listAvatarContainer)
+                    listAvatarContainer.appendChild(listUserAvatar)
+                listItem.appendChild(listInfoContainer)
+                    listInfoContainer.appendChild(listInfo)
+                        listInfo.appendChild(listName)
+                        listInfo.appendChild(listDate)
+                listInfoContainer.appendChild(listComment)
+                    
+            //add array data to div      
+            listName.innerText = person.name
+            listDate.innerText = person.timestamp
+            listComment.innerText = person.comment
+    });
+}
