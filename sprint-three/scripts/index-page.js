@@ -4,21 +4,8 @@ const clearElements = () => {
     commentsListContainer.innerHTML = ''         
 }
 
-
-//user access page then axios retrieves comments
-    //default
-    //other users comments
-//display all comments using DOM
-//user add new comment 
-//do axios post
-//add new comment visually with dom, 
-//  you dont need to retirve everytime
-
-
-//to get comment first, put it in an array and then use unshift
-
 //=============== SPRINT 3 ==================
-const BANDSITE_API_KEY = '61bde53c-a163-42df-a179-4a3ee68c3cf0'
+const BANDSITE_API_KEY = 'ff034640-b9b1-4d31-ac48-adac7be1b910'
 const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
 
 //type in the url you want, key goes at the end
@@ -31,16 +18,21 @@ getKey
     .catch(err => console.log(err))
 
 //get comments from API
-const getComments = axios.get(`${BANDSITE_COMMENTS_API}`)
-getComments
-    .then( bandsiteAPIData => {
-        diplayAPIComments(bandsiteAPIData.data)
-    })
-    .catch(err => console.log(err))
+const getAPIComments = () => {
+    return axios.get(`${BANDSITE_COMMENTS_API}`)
+}
+
+const diplayAPIDefaultComments = () => {
+    return axios.get(`${BANDSITE_COMMENTS_API}`)
+        .then( API => {
+            diplayAPIComments(API.data)
+        });
+}      
+diplayAPIDefaultComments()
+
 
 //add comments using POST in axios using header
-
-const addAPIComments = () => {
+const form = () => {
     const commentForm = document.querySelector(".comments__form")
     const formInput = document.querySelector(".comments__form-input")
     const formComment = document.querySelector(".comments__form-textarea")
@@ -48,37 +40,14 @@ const addAPIComments = () => {
     commentForm.addEventListener('submit', event => {
         event.preventDefault();
         
-        
-        // let newComment = {
-        //     name: "",
-        //     comment: ""
-        // }
-       
-        // clearElements()
-        
-        //input values from user
         const formInputValue = formInput.value
         const formCommentValue = formComment.value
         
-        // const newCommentData = {
-        //     name: formInputValue,
-        //     timestamp: formatedDate,
-        //     comment: formCommentValue
-        // }
-        // defaultComments.unshift(newCommentData)
-
-        // if (firstComment) {
-        //     clearElements()
-        //     firstComment = false
-        // }
-
+        
         newComment = {
             name: formInputValue,
             comment: formCommentValue
         }
-        console.log(newComment)
-
-
 
         axios({
             method: "post",
@@ -87,54 +56,61 @@ const addAPIComments = () => {
             header: {
                 "Content-Type": "application/json",
             },
-        }).then((response)=> {
-
-            console.log(response);
         })
-        
-        // console.log(addAPIComments(newComment))
+        .then( () => {
+            getAPIComments()
+            .then( res => {
+                clearElements()
+                diplayAPIComments(res.data)
+            });
+        })
+        .catch( err => console.log(err))
+
         commentForm.reset();
-        addCommentToDOM(newComment)
     })
-
-
-
-
-    // let newComment = {
-    //     name : "testName",
-    //     comment: "testcomment"
-    // }
-    
-    // axios({
-    //     method: "post",
-    //     url: BANDSITE_COMMENTS_API,
-    //     data: newComment,
-    //     header: {
-    //         "Content-Type": "application/json",
-    //     },
-    // }).then((response)=> console.log(response))
 }
-
-addAPIComments()
-
-
-
-// axios.post(`${BANDSITE_COMMENTS_API}`, {
-//     name : formInputValue,
-//     comment: formCommentValue
-//     })
-//     .then((response)=> console.log(response))
-//     .catch(err => console.log(err))
-
+form()
 
 //display API Comments
 const diplayAPIComments = (APIdata) => {
-    APIdata.forEach((person) => {
-        addCommentToDOM(person)
+    APIdata.reverse()
+    APIdata.forEach((person) => {   
+        addComment(person)
     });
 }
 
-const addCommentToDOM = (comment) => {
+//convert unix time to relative 
+const unixToRelative = (current, stamp) => {
+    // console.log(date)
+
+    let msPerMinute = 60* 1000
+    let msPerHour = msPerMinute * 60;
+    let msPerDay = msPerHour * 24;
+    let msPerMonth = msPerDay * 30;
+    var msPerYear = msPerDay * 365;
+
+    let elapsed = current - stamp
+
+    if ( elapsed < msPerMinute) {
+        return Math.round(elapsed/1000) + " seconds ago"
+    }
+    else if ( elapsed < msPerHour) {
+        return Math.round(elapsed/msPerMinute) + " minutes ago"
+    }
+    else if (elapsed < msPerDay ) {
+        return Math.round(elapsed/msPerHour ) + ' hours ago';   
+    }
+    else if (elapsed < msPerMonth) {
+        return Math.round(elapsed/msPerDay) + ' days ago';   
+    }
+    else if (elapsed < msPerYear) {
+        return Math.round(elapsed/msPerMonth) + ' months ago';   
+   }
+}
+
+const addComment = (comment) => {
+        const date = new Date()
+
         const commentsListContainer = document.querySelector(".comments__list-container") 
 
         const listItem = document.createElement("div")
@@ -170,9 +146,10 @@ const addCommentToDOM = (comment) => {
                     listInfo.appendChild(listName)
                     listInfo.appendChild(listDate)
             listInfoContainer.appendChild(listComment)
-               
+
         //add array data to div      
         listName.innerText = comment.name
-        listDate.innerText = comment.timestamp
+        listDate.innerText = unixToRelative(date, comment.timestamp)
         listComment.innerText = comment.comment
 }
+
