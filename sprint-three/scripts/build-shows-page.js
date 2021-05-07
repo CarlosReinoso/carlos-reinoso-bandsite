@@ -34,17 +34,7 @@ displayHeader()
 
 
 
-//console location on buy button click
-const consoleVenue = () => {
-    const buyButtons = document.querySelectorAll(".shows__item-button")
-    buyButtons.forEach( (button, index) => {
-        button.addEventListener('click', () => {
-            const venues = document.querySelectorAll(".shows__item-venue")
-            console.log(venues[index].innerText)
-        })
-    })
-}
-consoleVenue()
+
 
 
 //================== SPRINT 3 ====================
@@ -117,6 +107,18 @@ const diplayAPIShowdates = (APIdata) => {
         showDivider.classList.add("shows__divider")
         showsItem.appendChild(showDivider)
     })
+
+    //console location on buy button click
+    const consoleVenue = () => {
+        const buyButtons = document.querySelectorAll(".shows__item-button")
+        buyButtons.forEach( (button, index) => {
+            button.addEventListener('click', () => {
+                const venues = document.querySelectorAll(".shows__item-venue")
+                console.log(venues[index].innerText)
+            })
+        })
+    }
+    consoleVenue()
 }
 
 //unix time to date
@@ -132,5 +134,3 @@ const unixToDate = (timestamp) => {
     let time = `${day} ${month} ${date} ${2021}`
     return time;
 }
-
-
