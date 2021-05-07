@@ -72,8 +72,96 @@ const displayHeader = () => {
 displayHeader()
 
 
-const displayShows = () => {
-    showsDetails.forEach( show => {
+// const displayShows = () => {
+    // showsDetails.forEach( show => {
+    //     //shows item
+    //     const showsItem = document.createElement("div")
+    //     showsItem.classList.add("shows__item")
+    //     showsContainer.appendChild(showsItem)
+
+    //     //show date label
+    //     const showDateLabel = document.createElement("label")
+    //     showDateLabel.classList.add("shows__label", "show__item", "show__item-label")
+    //     showDateLabel.innerText = "DATE"
+    //     showsItem.appendChild(showDateLabel)
+
+    //     //show date
+    //     const showDate = document.createElement("div")
+    //     showDate.classList.add("shows__item-date", "show__item")
+    //     showDate.innerText = show.date
+    //     showsItem.appendChild(showDate)
+        
+    //     //show venue label
+    //     const showVenueLabel = document.createElement("label")
+    //     showVenueLabel.classList.add("shows__label", "show__item", "show__item-label")
+    //     showVenueLabel.innerText = "VENUE"
+    //     showsItem.appendChild(showVenueLabel)
+
+    //     //show venue
+    //     const showVenue = document.createElement("div")
+    //     showVenue.classList.add("shows__item-venue", "show__item")
+    //     showVenue.innerText = show.venue
+    //     showsItem.appendChild(showVenue)
+        
+    //     //show location label
+    //     const showLocationLabel = document.createElement("label")
+    //     showLocationLabel.classList.add("shows__label", "show__item", "show__item-label")
+    //     showLocationLabel.innerText = "LOCATION"
+    //     showsItem.appendChild(showLocationLabel)
+
+    //     //show location
+    //     const showLocation = document.createElement("div")
+    //     showLocation.classList.add("shows__item-location", "show__item")
+    //     showLocation.innerText = show.location
+    //     showsItem.appendChild(showLocation)
+
+    //     //button
+    //     const showButton = document.createElement("button")
+    //     showButton.classList.add("shows__item-button", "show__item")
+    //     showButton.innerText = "BUY TICKETS"
+    //     showsItem.appendChild(showButton)
+        
+    //     //divider
+    //     const showDivider = document.createElement("hr")
+    //     showDivider.classList.add("shows__divider")
+    //     showsItem.appendChild(showDivider)
+        
+
+    // })
+// }
+// displayShows()
+
+//console location on buy button click
+const consoleVenue = () => {
+    const buyButtons = document.querySelectorAll(".shows__item-button")
+    buyButtons.forEach( (button, index) => {
+        button.addEventListener('click', () => {
+            const venues = document.querySelectorAll(".shows__item-venue")
+            console.log(venues[index].innerText)
+        })
+    })
+}
+consoleVenue()
+
+
+//SPRINT 3
+
+const BANDSITE_API_KEY = '076e5480-f5ec-4ec2-a1d9-112f1b6fbc03'
+const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
+
+const BANDSITE_SHOWDATES_API = `https://project-1-api.herokuapp.com/showdates?api_key=${BANDSITE_API_KEY}`
+
+//get showdates from API
+const getShowDates = axios.get(`${BANDSITE_SHOWDATES_API}`)
+getShowDates
+    .then( bandsiteAPIData => {
+        diplayAPIShowdates(bandsiteAPIData.data)
+    })
+    .catch(err => console.log(err))
+
+const diplayAPIShowdates = (APIdata) => {
+    console.log(APIdata)
+    APIdata.forEach( show => {
         //shows item
         const showsItem = document.createElement("div")
         showsItem.classList.add("shows__item")
@@ -125,25 +213,7 @@ const displayShows = () => {
         const showDivider = document.createElement("hr")
         showDivider.classList.add("shows__divider")
         showsItem.appendChild(showDivider)
-        
-
     })
 }
-displayShows()
-
-//console location on buy button click
-const consoleVenue = () => {
-    const buyButtons = document.querySelectorAll(".shows__item-button")
-    buyButtons.forEach( (button, index) => {
-        button.addEventListener('click', () => {
-            const venues = document.querySelectorAll(".shows__item-venue")
-            console.log(venues[index].innerText)
-        })
-    })
-}
-consoleVenue()
-
-
-
 
 
