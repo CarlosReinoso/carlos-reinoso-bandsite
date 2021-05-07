@@ -47,7 +47,7 @@ const consoleVenue = () => {
 consoleVenue()
 
 
-//================== SPRINT 3 ===================
+//================== SPRINT 3 ====================
 
 const BANDSITE_API_KEY = '076e5480-f5ec-4ec2-a1d9-112f1b6fbc03'
 const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
