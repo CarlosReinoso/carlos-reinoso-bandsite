@@ -1,7 +1,3 @@
-//shows header
-//array: dates, venue, location
-//button: console location
-
 //make section element in main
 const main = document.querySelector("main")
 const section = document.createElement("section")
@@ -14,41 +10,6 @@ header.classList.add("shows__header")
 header.innerText = "Shows"
 section.appendChild(header)
 
-//display shows
-const showsDetails = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Tue Sept 21 2021",
-        venue: "Pier 3 East",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Oct 15 2021",
-        venue: "View Lounge",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Sat Nov 06 2021 ",
-        venue: "Hyatt Agency",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venue: "Moscow Center",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venue: "Press Club",
-        location: "San Francisco, CA"
-    },
-]
-
-//add shows html and css via loop
 //shows container
 const showsContainer = document.createElement("div")
 showsContainer.classList.add("shows__container")
@@ -72,64 +33,6 @@ const displayHeader = () => {
 displayHeader()
 
 
-// const displayShows = () => {
-    // showsDetails.forEach( show => {
-    //     //shows item
-    //     const showsItem = document.createElement("div")
-    //     showsItem.classList.add("shows__item")
-    //     showsContainer.appendChild(showsItem)
-
-    //     //show date label
-    //     const showDateLabel = document.createElement("label")
-    //     showDateLabel.classList.add("shows__label", "show__item", "show__item-label")
-    //     showDateLabel.innerText = "DATE"
-    //     showsItem.appendChild(showDateLabel)
-
-    //     //show date
-    //     const showDate = document.createElement("div")
-    //     showDate.classList.add("shows__item-date", "show__item")
-    //     showDate.innerText = show.date
-    //     showsItem.appendChild(showDate)
-        
-    //     //show venue label
-    //     const showVenueLabel = document.createElement("label")
-    //     showVenueLabel.classList.add("shows__label", "show__item", "show__item-label")
-    //     showVenueLabel.innerText = "VENUE"
-    //     showsItem.appendChild(showVenueLabel)
-
-    //     //show venue
-    //     const showVenue = document.createElement("div")
-    //     showVenue.classList.add("shows__item-venue", "show__item")
-    //     showVenue.innerText = show.venue
-    //     showsItem.appendChild(showVenue)
-        
-    //     //show location label
-    //     const showLocationLabel = document.createElement("label")
-    //     showLocationLabel.classList.add("shows__label", "show__item", "show__item-label")
-    //     showLocationLabel.innerText = "LOCATION"
-    //     showsItem.appendChild(showLocationLabel)
-
-    //     //show location
-    //     const showLocation = document.createElement("div")
-    //     showLocation.classList.add("shows__item-location", "show__item")
-    //     showLocation.innerText = show.location
-    //     showsItem.appendChild(showLocation)
-
-    //     //button
-    //     const showButton = document.createElement("button")
-    //     showButton.classList.add("shows__item-button", "show__item")
-    //     showButton.innerText = "BUY TICKETS"
-    //     showsItem.appendChild(showButton)
-        
-    //     //divider
-    //     const showDivider = document.createElement("hr")
-    //     showDivider.classList.add("shows__divider")
-    //     showsItem.appendChild(showDivider)
-        
-
-    // })
-// }
-// displayShows()
 
 //console location on buy button click
 const consoleVenue = () => {
@@ -144,7 +47,7 @@ const consoleVenue = () => {
 consoleVenue()
 
 
-//SPRINT 3
+//================== SPRINT 3 ===================
 
 const BANDSITE_API_KEY = '076e5480-f5ec-4ec2-a1d9-112f1b6fbc03'
 const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
@@ -159,8 +62,8 @@ getShowDates
     })
     .catch(err => console.log(err))
 
+//display shows from API
 const diplayAPIShowdates = (APIdata) => {
-    console.log(APIdata)
     APIdata.forEach( show => {
         //shows item
         const showsItem = document.createElement("div")
@@ -176,7 +79,7 @@ const diplayAPIShowdates = (APIdata) => {
         //show date
         const showDate = document.createElement("div")
         showDate.classList.add("shows__item-date", "show__item")
-        showDate.innerText = show.date
+        showDate.innerText = unixToDate(show.date)
         showsItem.appendChild(showDate)
         
         //show venue label
@@ -188,7 +91,7 @@ const diplayAPIShowdates = (APIdata) => {
         //show venue
         const showVenue = document.createElement("div")
         showVenue.classList.add("shows__item-venue", "show__item")
-        showVenue.innerText = show.venue
+        showVenue.innerText = show.place
         showsItem.appendChild(showVenue)
         
         //show location label
@@ -214,6 +117,20 @@ const diplayAPIShowdates = (APIdata) => {
         showDivider.classList.add("shows__divider")
         showsItem.appendChild(showDivider)
     })
+}
+
+//unix time to date
+const unixToDate = (timestamp) => {
+    let a = new Date(timestamp*1000);
+
+    let days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
+    let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];
+    let day = days[a.getDay()]
+    let date = a.getDate();
+    let month = months[a.getMonth()];
+
+    let time = `${day} ${month} ${date} ${2021}`
+    return time;
 }
 
 
