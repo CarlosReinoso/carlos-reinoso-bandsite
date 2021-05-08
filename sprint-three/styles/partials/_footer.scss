@@ -106,10 +106,10 @@
 
     &__copyright {
         display: block;
-        height: 24px;
-        font-size: 11px;
+        height: 1.5rem;
+        font-size: 0.6875rem;
         @include tablet {
-            font-size: 16px;
+            font-size: 1rem;
         }
     }
 }

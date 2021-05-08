@@ -33,10 +33,6 @@ const displayHeader = () => {
 displayHeader()
 
 
-
-
-
-
 //================== SPRINT 3 ====================
 
 const BANDSITE_API_KEY = '076e5480-f5ec-4ec2-a1d9-112f1b6fbc03'
@@ -45,12 +41,14 @@ const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
 const BANDSITE_SHOWDATES_API = `https://project-1-api.herokuapp.com/showdates?api_key=${BANDSITE_API_KEY}`
 
 //get showdates from API
-const getShowDates = axios.get(`${BANDSITE_SHOWDATES_API}`)
-getShowDates
-    .then( bandsiteAPIData => {
-        diplayAPIShowdates(bandsiteAPIData.data)
-    })
-    .catch(err => console.log(err))
+const getShowDates = () => {
+    return axios.get(`${BANDSITE_SHOWDATES_API}`)
+        .then( bandsiteAPIData => {
+            diplayAPIShowdates(bandsiteAPIData.data)
+        })
+        .catch(err => console.log(err))
+}
+getShowDates()
 
 //display shows from API
 const diplayAPIShowdates = (APIdata) => {
@@ -123,7 +121,7 @@ const diplayAPIShowdates = (APIdata) => {
 
 //unix time to date
 const unixToDate = (timestamp) => {
-    let a = new Date(timestamp*1000);
+    let a = new Date(timestamp * 1000);
 
     let days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat']
     let months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec'];

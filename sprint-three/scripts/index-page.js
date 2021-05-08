@@ -1,19 +1,14 @@
+//=============== SPRINT 3 ==================
+
 const commentsListContainer = document.querySelector(".comments__list-container") 
 
-const clearElements = () => {
-    commentsListContainer.innerHTML = ''         
-}
-
-//=============== SPRINT 3 ==================
-const BANDSITE_API_KEY = 'ff034640-b9b1-4d31-ac48-adac7be1b910'
+const BANDSITE_API_KEY = 'afa006d1-abfd-4b8d-8f19-619e185a7684'
 const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
-
-//type in the url you want, key goes at the end
 const BANDSITE_COMMENTS_API = `https://project-1-api.herokuapp.com/comments?api_key=${BANDSITE_API_KEY}`
 
 //get auth keys
-const getKey = axios.get(BANDSITE_API_URL+"/register")
-getKey
+axios
+    .get(BANDSITE_API_URL+"/register")
     .then(bandsiteAPIKey => console.log("Bandsite API Key: " + bandsiteAPIKey.data.api_key))
     .catch(err => console.log(err))
 
@@ -23,15 +18,75 @@ const getAPIComments = () => {
 }
 
 const diplayAPIDefaultComments = () => {
-    return axios.get(`${BANDSITE_COMMENTS_API}`)
-        .then( API => {
-            diplayAPIComments(API.data)
-        });
+    return getAPIComments()
+    .then( res => {
+        diplayAPIComments(res.data)
+    })
 }      
 diplayAPIDefaultComments()
 
+//display API Comments
+const diplayAPIComments = (APIdata) => {
+    APIdata.sort( (a, b) => {
+        if(a.timestamp < b.timestamp) {
+            return 1
+        }else return -1
+    })
+    APIdata.forEach((person) => {   
+        addComment(person)
+    });
+}
 
-//add comments using POST in axios using header
+const addComment = (comment) => {
+    const date = new Date()
+
+    const commentsListContainer = document.querySelector(".comments__list-container") 
+
+    const listItem = document.createElement("div")
+    listItem.classList.add("comments__list-item")
+
+    const listAvatarContainer = document.createElement("div")
+    listAvatarContainer.classList.add("comments__list-avatar-container")
+
+    const listUserAvatar = document.createElement("div")
+    listUserAvatar.classList.add("comments__list-user-avatar")
+
+    const listInfoContainer = document.createElement("div")
+    listInfoContainer.classList.add("comments__list-info-container")
+
+    const listInfo = document.createElement("div")
+    listInfo.classList.add("comments__list-info")
+
+    const listName = document.createElement("div")
+    listName.classList.add("comments__list-name")
+
+    const listDate = document.createElement("div")
+    listDate.classList.add("comments__list-date")
+
+    const listComment = document.createElement("div")
+    listComment.classList.add("comments__list-comment")
+
+    //append layers of divs
+    commentsListContainer.appendChild(listItem)
+        listItem.appendChild(listAvatarContainer)
+            listAvatarContainer.appendChild(listUserAvatar)
+        listItem.appendChild(listInfoContainer)
+            listInfoContainer.appendChild(listInfo)
+                listInfo.appendChild(listName)
+                listInfo.appendChild(listDate)
+        listInfoContainer.appendChild(listComment)
+
+    //add array data to div      
+    listName.innerText = comment.name
+    listDate.innerText = unixToRelative(date, comment.timestamp)
+    listComment.innerText = comment.comment
+}
+
+const clearElements = () => {
+    commentsListContainer.innerHTML = ''         
+}
+
+//add comments using POST in axios
 const form = () => {
     const commentForm = document.querySelector(".comments__form")
     const formInput = document.querySelector(".comments__form-input")
@@ -42,7 +97,6 @@ const form = () => {
         
         const formInputValue = formInput.value
         const formCommentValue = formComment.value
-        
         
         newComment = {
             name: formInputValue,
@@ -62,27 +116,18 @@ const form = () => {
             .then( res => {
                 clearElements()
                 diplayAPIComments(res.data)
+                console.log(res.data)
             });
         })
         .catch( err => console.log(err))
-
+        
         commentForm.reset();
     })
 }
 form()
 
-//display API Comments
-const diplayAPIComments = (APIdata) => {
-    APIdata.reverse()
-    APIdata.forEach((person) => {   
-        addComment(person)
-    });
-}
-
 //convert unix time to relative 
 const unixToRelative = (current, stamp) => {
-    // console.log(date)
-
     let msPerMinute = 60* 1000
     let msPerHour = msPerMinute * 60;
     let msPerDay = msPerHour * 24;
@@ -92,7 +137,7 @@ const unixToRelative = (current, stamp) => {
     let elapsed = current - stamp
 
     if ( elapsed < msPerMinute) {
-        return Math.round(elapsed/1000) + " seconds ago"
+        return Math.round((elapsed/1000) + 1) + " seconds ago"
     }
     else if ( elapsed < msPerHour) {
         return Math.round(elapsed/msPerMinute) + " minutes ago"
@@ -106,50 +151,5 @@ const unixToRelative = (current, stamp) => {
     else if (elapsed < msPerYear) {
         return Math.round(elapsed/msPerMonth) + ' months ago';   
    }
-}
-
-const addComment = (comment) => {
-        const date = new Date()
-
-        const commentsListContainer = document.querySelector(".comments__list-container") 
-
-        const listItem = document.createElement("div")
-        listItem.classList.add("comments__list-item")
-
-        const listAvatarContainer = document.createElement("div")
-        listAvatarContainer.classList.add("comments__list-avatar-container")
-
-        const listUserAvatar = document.createElement("div")
-        listUserAvatar.classList.add("comments__list-user-avatar")
-
-        const listInfoContainer = document.createElement("div")
-        listInfoContainer.classList.add("comments__list-info-container")
-
-        const listInfo = document.createElement("div")
-        listInfo.classList.add("comments__list-info")
-
-        const listName = document.createElement("div")
-        listName.classList.add("comments__list-name")
-
-        const listDate = document.createElement("div")
-        listDate.classList.add("comments__list-date")
-
-        const listComment = document.createElement("div")
-        listComment.classList.add("comments__list-comment")
-
-        //append layers of divs
-        commentsListContainer.appendChild(listItem)
-            listItem.appendChild(listAvatarContainer)
-                listAvatarContainer.appendChild(listUserAvatar)
-            listItem.appendChild(listInfoContainer)
-                listInfoContainer.appendChild(listInfo)
-                    listInfo.appendChild(listName)
-                    listInfo.appendChild(listDate)
-            listInfoContainer.appendChild(listComment)
-
-        //add array data to div      
-        listName.innerText = comment.name
-        listDate.innerText = unixToRelative(date, comment.timestamp)
-        listComment.innerText = comment.comment
 }
 
