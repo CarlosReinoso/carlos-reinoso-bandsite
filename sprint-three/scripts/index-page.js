@@ -1,8 +1,7 @@
-//=============== SPRINT 3 ==================
+//================ SPRINT 3 ===================
 
 const commentsListContainer = document.querySelector(".comments__list-container") 
-
-const BANDSITE_API_KEY = 'afa006d1-abfd-4b8d-8f19-619e185a7684'
+const BANDSITE_API_KEY = '38d527dc-38ea-4e7d-b6c0-a6fa373446b5'
 const BANDSITE_API_URL = "https://project-1-api.herokuapp.com"
 const BANDSITE_COMMENTS_API = `https://project-1-api.herokuapp.com/comments?api_key=${BANDSITE_API_KEY}`
 
@@ -17,6 +16,8 @@ const getAPIComments = () => {
     return axios.get(`${BANDSITE_COMMENTS_API}`)
 }
 
+console.log(axios.get(`${BANDSITE_COMMENTS_API}`))
+
 const diplayAPIDefaultComments = () => {
     return getAPIComments()
     .then( res => {
@@ -24,6 +25,47 @@ const diplayAPIDefaultComments = () => {
     })
 }      
 diplayAPIDefaultComments()
+
+
+//add comments using POST in axios
+const form = () => {
+    const commentForm = document.querySelector(".comments__form")
+    const formInput = document.querySelector(".comments__form-input")
+    const formComment = document.querySelector(".comments__form-textarea")
+
+    commentForm.addEventListener('submit', event => {
+        event.preventDefault();
+        
+        const formInputValue = formInput.value
+        const formCommentValue = formComment.value
+        
+        newComment = {
+            name: formInputValue,
+            comment: formCommentValue
+        }
+
+        axios({
+            method: "post",
+            url: BANDSITE_COMMENTS_API,
+            data: newComment,
+            header: {
+                "Content-Type": "application/json",
+            },
+        })
+        .then( () => {
+            getAPIComments()
+            .then( res => {
+                clearElements()
+                diplayAPIComments(res.data)
+                console.log(res.data)
+            });
+        })
+        .catch( err => console.log(err))
+        
+        commentForm.reset();
+    })
+}
+form()
 
 //display API Comments
 const diplayAPIComments = (APIdata) => {
@@ -86,45 +128,6 @@ const clearElements = () => {
     commentsListContainer.innerHTML = ''         
 }
 
-//add comments using POST in axios
-const form = () => {
-    const commentForm = document.querySelector(".comments__form")
-    const formInput = document.querySelector(".comments__form-input")
-    const formComment = document.querySelector(".comments__form-textarea")
-
-    commentForm.addEventListener('submit', event => {
-        event.preventDefault();
-        
-        const formInputValue = formInput.value
-        const formCommentValue = formComment.value
-        
-        newComment = {
-            name: formInputValue,
-            comment: formCommentValue
-        }
-
-        axios({
-            method: "post",
-            url: BANDSITE_COMMENTS_API,
-            data: newComment,
-            header: {
-                "Content-Type": "application/json",
-            },
-        })
-        .then( () => {
-            getAPIComments()
-            .then( res => {
-                clearElements()
-                diplayAPIComments(res.data)
-                console.log(res.data)
-            });
-        })
-        .catch( err => console.log(err))
-        
-        commentForm.reset();
-    })
-}
-form()
 
 //convert unix time to relative 
 const unixToRelative = (current, stamp) => {
